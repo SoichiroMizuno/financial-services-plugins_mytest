@@ -1,102 +1,102 @@
 # CIM Builder
 
-description: Structure and draft a Confidential Information Memorandum for sell-side M&A processes. Organizes company information into a professional, investor-ready document with consistent formatting and narrative flow. Use when preparing sell-side materials, drafting a CIM, or organizing company data for a sale process. Triggers on "CIM", "confidential information memorandum", "offering memorandum", "info memo", "draft CIM", or "sell-side materials".
+description: セルサイドM&AプロセスにおけるCIM（Confidential Information Memorandum）の構成と草稿作成。会社情報をプロフェッショナルな投資家向けドキュメントに整理し、一貫したフォーマットとナラティブの流れを持たせる。セルサイド資料の準備、CIMの草稿作成、売却プロセスに向けた会社情報の整理に使用する。「CIM」「Confidential Information Memorandum」「Offering Memorandum」「Info Memo」「CIM草稿」「セルサイド資料」をトリガーとする。
 
-## Workflow
+## ワークフロー
 
-### Step 1: Gather Source Materials
+### Step 1: ソース資料の収集
 
-Ask for available inputs:
-- Management presentations
-- Historical financials (3-5 years)
-- Budget/forecast
-- Company website and marketing materials
-- Customer data (anonymized if needed)
-- Org chart
-- Prior presentations or board decks
-- Quality of earnings report (if available)
+利用可能なインプットを確認する：
+- 経営陣によるプレゼンテーション資料
+- 過去の財務データ（3〜5年分）
+- 予算・業績予想
+- 会社ウェブサイトおよびマーケティング資料
+- 顧客データ（必要に応じて匿名化）
+- 組織図
+- 過去のプレゼン資料や取締役会向けデッキ
+- Quality of Earnings レポート（入手可能な場合）
 
-### Step 2: CIM Structure
+### Step 2: CIM の構成
 
-Standard CIM table of contents:
+CIM の標準的な目次：
 
-**I. Executive Summary** (2-3 pages)
-- Company overview — what they do, why they win
-- Investment highlights (5-7 key selling points)
-- Financial summary — headline revenue, EBITDA, growth, margins
-- Transaction overview — what's being sold, indicative timeline
+**I. エグゼクティブサマリー**（2〜3ページ）
+- 会社概要 — 何をしている会社か、なぜ競争に勝てるか
+- Investment Highlights（5〜7つの主要な訴求ポイント）
+- 財務サマリー — 売上高・EBITDA・成長率・マージンの概要
+- 取引概要 — 売却対象、想定スケジュール
 
-**II. Company Overview** (3-5 pages)
-- History and founding story
-- Mission and value proposition
-- Products and services description
-- Business model and revenue streams
-- Key differentiators and competitive advantages
+**II. 会社概要**（3〜5ページ）
+- 沿革と創業ストーリー
+- ミッションと提供価値
+- 製品・サービスの説明
+- ビジネスモデルと収益源
+- 差別化要因と競争優位性
 
-**III. Industry Overview** (3-5 pages)
-- Market size and growth dynamics (TAM/SAM/SOM)
-- Key industry trends and tailwinds
-- Competitive landscape
-- Regulatory environment
-- Barriers to entry
+**III. 業界概要**（3〜5ページ）
+- 市場規模と成長ダイナミクス（TAM/SAM/SOM）
+- 主要な業界トレンドと追い風
+- 競合環境
+- 規制環境
+- 参入障壁
 
-**IV. Growth Opportunities** (2-3 pages)
-- Organic growth levers (new products, markets, pricing)
-- M&A / add-on opportunities
-- Operational improvements
-- Technology investments
-- White space analysis
+**IV. 成長機会**（2〜3ページ）
+- オーガニック成長のレバー（新製品・新市場・価格戦略）
+- M&A / アドオン機会
+- オペレーション改善
+- テクノロジー投資
+- ホワイトスペース分析
 
-**V. Customers & Sales** (3-5 pages)
-- Customer overview (number, segments, geography)
-- Top customer analysis (anonymized if pre-LOI)
-- Customer concentration and retention metrics
-- Sales process and go-to-market strategy
-- Pipeline and backlog
+**V. 顧客・営業**（3〜5ページ）
+- 顧客概要（顧客数・セグメント・地域）
+- 主要顧客分析（LOI締結前は匿名化）
+- 顧客集中度とリテンション指標
+- 営業プロセスとGo-to-Market戦略
+- パイプラインおよびバックログ
 
-**VI. Operations** (2-3 pages)
-- Organizational structure
-- Key personnel
-- Facilities and geographic footprint
-- Technology and systems
-- Supply chain / vendor relationships
+**VI. オペレーション**（2〜3ページ）
+- 組織構造
+- 主要人材
+- 拠点と地理的フットプリント
+- テクノロジーおよびシステム
+- サプライチェーン / ベンダー関係
 
-**VII. Financial Overview** (5-8 pages)
-- Historical income statement (3-5 years)
-- Revenue analysis — by segment, geography, customer type
-- EBITDA bridge and margin analysis
-- Balance sheet overview
-- Cash flow summary
-- Capital expenditure history
-- Working capital analysis
-- Management forecast / budget (if included)
+**VII. 財務概要**（5〜8ページ）
+- 過去の損益計算書（3〜5年分）
+- 売上分析 — セグメント・地域・顧客タイプ別
+- EBITDA ブリッジとマージン分析
+- 貸借対照表の概要
+- キャッシュフローサマリー
+- 設備投資の履歴
+- 運転資本分析
+- 経営陣による業績予想 / 予算（含める場合）
 
-**VIII. Appendix**
-- Detailed financial statements
-- Customer list (anonymized)
-- Product catalog
-- Management bios
+**VIII. 附属資料（Appendix）**
+- 詳細財務諸表
+- 顧客リスト（匿名化）
+- 製品カタログ
+- 経営陣の略歴
 
-### Step 3: Drafting Guidelines
+### Step 3: 草稿作成のガイドライン
 
-- **Tone**: Professional, factual, compelling but not hyperbolic
-- **Narrative**: Tell a story — why this business is attractive, defensible, and positioned for growth
-- **Data-driven**: Support every claim with data. "Strong growth" → "Revenue grew at a 15% CAGR from 2021-2024"
-- **Visuals**: Charts and graphs for financial trends, market size, competitive positioning
-- **Length**: 40-60 pages total — enough detail to inform first-round bids, not so long buyers won't read it
-- **Confidentiality**: Include a disclaimer page. Anonymize sensitive customer data unless seller approves
+- **トーン**: プロフェッショナルで事実に基づき、説得力があるが誇張しない
+- **ナラティブ**: ストーリーを語る — なぜこのビジネスが魅力的で、防衛可能で、成長に向けて positioned されているか
+- **データ駆動**: すべての主張をデータで裏付ける。「力強い成長」ではなく「2021〜2024年に売上高が15% CAGRで成長」と表現する
+- **ビジュアル**: 財務トレンド・市場規模・競合ポジショニングにはチャートとグラフを使用する
+- **ページ数**: 合計40〜60ページ — 第1ラウンドの入札判断に必要な詳細を提供しつつ、買い手が読まなくなるほど長くしない
+- **機密保持**: 免責事項ページを含める。売り手が承認しない限り、機密性の高い顧客データは匿名化する
 
-### Step 4: Output
+### Step 4: 成果物
 
-- Word document (.docx) with professional formatting
-- Separate Excel appendix with detailed financials
-- Charts and exhibits embedded in the document
+- プロフェッショナルなフォーマットの Word ドキュメント（.docx）
+- 詳細財務データを含む別途 Excel 附属資料
+- ドキュメントに埋め込まれたチャートおよび補足資料
 
-## Important Notes
+## 重要事項
 
-- The CIM is a sales document — lead with strengths, but don't hide material issues (buyers will find them in diligence)
-- Investment highlights should address the 3 things every buyer cares about: growth potential, margin profile, and defensibility
-- Financial normalization / pro forma adjustments should be clearly labeled and explained
-- Work with legal on the confidentiality disclaimer and any regulatory disclosures
-- Get management to review for factual accuracy before distribution
-- The CIM sets expectations on valuation — make sure the narrative supports the asking price
+- CIM は営業資料である — 強みを前面に出すが、重要な問題点を隠してはならない（買い手はデューデリジェンスで必ず発見する）
+- Investment Highlights は、すべての買い手が関心を持つ3点を押さえること：成長ポテンシャル・マージン水準・ビジネスの防衛可能性
+- 財務の正常化 / Pro Forma 調整は明確にラベルを付け、根拠を説明すること
+- 機密保持に関する免責事項および規制上の開示事項については法務と協議する
+- 配布前に経営陣に事実確認のレビューを依頼する
+- CIM はバリュエーションへの期待値を設定する — ナラティブが希望売却価格を支持するものになっているか確認する

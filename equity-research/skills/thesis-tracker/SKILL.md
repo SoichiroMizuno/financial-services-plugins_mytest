@@ -1,64 +1,64 @@
 # Thesis Tracker
 
-description: Maintain and update investment theses for portfolio positions and watchlist names. Track key data points, catalysts, and thesis milestones over time. Use when updating a thesis with new information, reviewing position rationale, or checking if a thesis is still intact. Triggers on "update thesis for [company]", "is my thesis still intact", "thesis check", "add data point to [company]", or "review my positions".
+description: ポートフォリオのポジションおよびウォッチリスト銘柄の投資テーシスを管理・更新する。主要データポイント、カタリスト、テーシスのマイルストーンを時系列で追跡する。新情報によるテーシス更新、ポジションの根拠レビュー、テーシスの有効性確認の際に使用する。「[銘柄]のテーシスを更新」「テーシスはまだ有効か」「テーシスチェック」「[銘柄]にデータポイントを追加」「ポジションをレビュー」をトリガーとする。
 
-## Workflow
+## ワークフロー
 
-### Step 1: Define or Load Thesis
+### Step 1: テーシスの定義または読み込み
 
-If creating a new thesis:
-- **Company**: Name and ticker
-- **Position**: Long or Short
-- **Thesis statement**: 1-2 sentence core thesis (e.g., "Long ACME — margin expansion from pricing power + operating leverage as mix shifts to software")
-- **Key pillars**: 3-5 supporting arguments
-- **Key risks**: 3-5 risks that would invalidate the thesis
-- **Catalysts**: Upcoming events that could prove/disprove the thesis (earnings, product launches, regulatory decisions)
-- **Target price / valuation**: What's it worth if the thesis plays out
-- **Stop-loss trigger**: What would make you exit
+新規テーシスを作成する場合：
+- **銘柄**: 会社名とティッカーシンボル
+- **ポジション**: ロングまたはショート
+- **テーシス文**: 1〜2文でコアテーシスを記述（例：「ACME ロング — 価格決定力とソフトウェアへのミックスシフトによるオペレーティングレバレッジでマージン拡大」）
+- **主要な柱**: テーシスを支持する3〜5つの論拠
+- **主要リスク**: テーシスを無効化し得る3〜5つのリスク
+- **カタリスト**: テーシスの正否を証明し得る今後のイベント（決算、製品ローンチ、規制判断等）
+- **目標株価 / バリュエーション**: テーシスが実現した場合の適正価値
+- **ストップロストリガー**: 撤退を判断する条件
 
-If updating an existing thesis, ask the user for the new data point or development.
+既存テーシスを更新する場合は、新しいデータポイントまたは新展開をユーザーに確認する。
 
-### Step 2: Update Log
+### Step 2: 更新ログ
 
-For each new data point or development:
+新しいデータポイントまたは新展開のたびに記録する：
 
-- **Date**: When this happened
-- **Data point**: What changed (earnings beat, management departure, competitor move, etc.)
-- **Thesis impact**: Does this strengthen, weaken, or neutralize a specific pillar?
-- **Action**: No change / Increase position / Trim / Exit
-- **Updated conviction**: High / Medium / Low
+- **日付**: 発生した日時
+- **データポイント**: 何が変化したか（決算のビート、経営幹部の退任、競合の動き等）
+- **テーシスへの影響**: 特定の柱を強化・弱化・中立化するか
+- **アクション**: 変更なし / ポジション積み増し / 一部利確 / 撤退
+- **更新後の確信度**: 高 / 中 / 低
 
-### Step 3: Thesis Scorecard
+### Step 3: テーシス・スコアカード
 
-Maintain a running scorecard:
+継続的なスコアカードを管理する：
 
-| Pillar | Original Expectation | Current Status | Trend |
+| 柱 | 当初の期待値 | 現状 | トレンド |
 |--------|---------------------|----------------|-------|
-| Revenue growth >20% | On track | Q3 was 22% | Stable |
-| Margin expansion | Behind | Margins flat YoY | Concerning |
-| New product launch | Pending | Delayed to Q2 | Watch |
+| 売上成長率 >20% | 順調 | Q3は22% | 安定 |
+| マージン拡大 | 遅れ | マージンは前年比横ばい | 懸念 |
+| 新製品ローンチ | 待機中 | Q2に延期 | 要注視 |
 
-### Step 4: Catalyst Calendar
+### Step 4: カタリスト・カレンダー
 
-Track upcoming catalysts:
+今後のカタリストを追跡する：
 
-| Date | Event | Expected Impact | Notes |
+| 日付 | イベント | 想定インパクト | 備考 |
 |------|-------|-----------------|-------|
 | | | | |
 
-### Step 5: Output
+### Step 5: アウトプット
 
-Thesis summary suitable for:
-- Morning meeting discussion
-- Portfolio review
-- Risk committee presentation
+以下に適したテーシス・サマリーを作成する：
+- 朝のミーティングでのディスカッション
+- ポートフォリオレビュー
+- リスク委員会へのプレゼンテーション
 
-Format: Concise markdown or Word doc with the scorecard, recent updates, and current conviction level.
+フォーマット：スコアカード、直近の更新、現時点の確信度を含む、簡潔なMarkdownまたはWord文書。
 
-## Important Notes
+## 重要事項
 
-- A thesis should be falsifiable — if nothing could disprove it, it's not a thesis
-- Track disconfirming evidence as rigorously as confirming evidence
-- Review theses at least quarterly, even when nothing dramatic has happened
-- If the user manages multiple positions, offer to do a full portfolio thesis review
-- Store thesis data in a structured format so it can be referenced across sessions
+- テーシスは反証可能でなければならない — 何があっても否定されないなら、それはテーシスではない
+- 否定する証拠を、肯定する証拠と同じ厳密さで追跡すること
+- 大きな動きがない時期でも、少なくとも四半期に一度はテーシスをレビューすること
+- 複数ポジションを管理するユーザーには、ポートフォリオ全体のテーシス一括レビューを提案すること
+- テーシスデータは構造化フォーマットで保存し、セッション間で参照できるようにすること
