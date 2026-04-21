@@ -1,0 +1,14 @@
+# 環境変数（APIキーを含む）
+.env
+
+# 入力PDF・生成ファイル（gitで管理しない）
+input/
+output/
+
+# Python キャッシュ
+__pycache__/
+*.pyc
+*.pyo
+
+# 作業ディレクトリに置いたPDF
+*.pdf

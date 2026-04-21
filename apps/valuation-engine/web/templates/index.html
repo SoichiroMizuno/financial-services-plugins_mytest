@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企業バリュエーションエンジン</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>企業バリュエーションエンジン</h1>
+    <p>有価証券報告書・決算短信をアップロードして、DCF による適正株価を算出します</p>
+  </header>
+
+  <main>
+    <section class="card form-card">
+      <h2>分析条件の入力</h2>
+      <form id="analyzeForm">
+        <div class="form-row">
+          <label for="ticker">証券コード <span class="required">*</span></label>
+          <input type="text" id="ticker" name="ticker" placeholder="例: 7203" maxlength="5" required>
+        </div>
+
+        <div class="form-row">
+          <label for="price">現在株価（円）</label>
+          <input type="number" id="price" name="price" placeholder="例: 3280（省略可）" step="1">
+        </div>
+
+        <div class="form-row">
+          <label for="pdf_file">有価証券報告書 PDF</label>
+          <input type="file" id="pdf_file" name="pdf_file" accept=".pdf">
+          <p class="hint">省略した場合は input/ フォルダの最新 PDF を使用します</p>
+        </div>
+
+        <button type="submit" id="submitBtn">分析を開始する</button>
+      </form>
+    </section>
+
+    <section class="card result-card" id="resultCard" style="display:none">
+      <h2>分析結果</h2>
+
+      <div class="company-header">
+        <span id="companyName" class="company-name"></span>
+        <span id="companyMeta" class="company-meta"></span>
+      </div>
+
+      <div class="judgment-box" id="judgmentBox">
+        <span id="judgmentLabel" class="judgment-label"></span>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-item">
+          <div class="price-label">現在株価</div>
+          <div class="price-value" id="currentPrice">—</div>
+        </div>
+        <div class="price-item highlight">
+          <div class="price-label">適正株価（中央値）</div>
+          <div class="price-value" id="fairValueMid">—</div>
+        </div>
+        <div class="price-item">
+          <div class="price-label">適正株価レンジ</div>
+          <div class="price-value" id="fairValueRange">—</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="/report" target="_blank" class="btn-secondary">詳細レポートを見る →</a>
+      </div>
+    </section>
+
+    <section class="card" id="errorCard" style="display:none">
+      <div class="error-message" id="errorMessage"></div>
+    </section>
+
+    <div id="loading" style="display:none">
+      <div class="spinner"></div>
+      <p>分析中です。しばらくお待ちください…（1〜2分程度）</p>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('analyzeForm');
+    const loading = document.getElementById('loading');
+    const resultCard = document.getElementById('resultCard');
+    const errorCard = document.getElementById('errorCard');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resultCard.style.display = 'none';
+      errorCard.style.display = 'none';
+      loading.style.display = 'flex';
+      submitBtn.disabled = true;
+      submitBtn.textContent = '分析中...';
+
+      const formData = new FormData(form);
+      // price が空なら送信しない
+      if (!formData.get('price')) formData.delete('price');
+
+      try {
+        const res = await fetch('/analyze', { method: 'POST', body: formData });
+        const data = await res.json();
+
+        if (!res.ok) {
+          showError(data.error || '分析中にエラーが発生しました');
+          return;
+        }
+        showResult(data);
+      } catch (err) {
+        showError('通信エラーが発生しました: ' + err.message);
+      } finally {
+        loading.style.display = 'none';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '分析を開始する';
+      }
+    });
+
+    function showResult(data) {
+      document.getElementById('companyName').textContent = data.company_name;
+      document.getElementById('companyMeta').textContent =
+        `${data.ticker} ｜ ${data.fiscal_year}`;
+
+      const judgmentBox = document.getElementById('judgmentBox');
+      const judgmentLabel = document.getElementById('judgmentLabel');
+      judgmentLabel.textContent = data.judgment;
+      judgmentBox.className = 'judgment-box judgment-' + data.judgment_color;
+
+      document.getElementById('currentPrice').textContent =
+        data.current_price ? `¥${data.current_price.toLocaleString()}` : '—';
+      document.getElementById('fairValueMid').textContent =
+        data.fair_value_mid ? `¥${data.fair_value_mid.toLocaleString()}` : '—';
+      document.getElementById('fairValueRange').textContent =
+        (data.fair_value_low && data.fair_value_high)
+          ? `¥${data.fair_value_low.toLocaleString()} 〜 ¥${data.fair_value_high.toLocaleString()}`
+          : '—';
+
+      resultCard.style.display = 'block';
+      resultCard.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showError(msg) {
+      document.getElementById('errorMessage').textContent = '⚠ ' + msg;
+      errorCard.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

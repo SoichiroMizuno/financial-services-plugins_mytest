@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DCF 分析レポート</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>DCF 分析レポート</h1>
+    <a href="/" class="back-link">← 分析画面に戻る</a>
+  </header>
+
+  <main>
+    {% if report_md %}
+    <section class="card report-card">
+      <div id="reportContent">{{ report_md }}</div>
+    </section>
+    {% else %}
+    <section class="card">
+      <p class="hint">レポートがまだ生成されていません。トップページから分析を実行してください。</p>
+      <a href="/" class="btn-secondary">← 分析を開始する</a>
+    </section>
+    {% endif %}
+  </main>
+
+  <script>
+    // Markdown を簡易レンダリング（見出し・表・太字・改行）
+    const el = document.getElementById('reportContent');
+    if (el) {
+      let html = el.textContent
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        // 見出し
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        // 太字
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        // コードブロック
+        .replace(/```[\s\S]*?```/g, m => `<pre><code>${m.slice(3, -3).trim()}</code></pre>`)
+        // インラインコード
+        .replace(/`(.+?)`/g, '<code>$1</code>')
+        // 水平線
+        .replace(/^---$/gm, '<hr>')
+        // 表（簡易）
+        .replace(/(\|.+\|\n)+/g, m => {
+          const rows = m.trim().split('\n').filter(r => !/^\|[\s\-|]+\|$/.test(r));
+          const tableRows = rows.map((r, i) => {
+            const cells = r.split('|').filter((_, idx) => idx > 0 && idx < r.split('|').length - 1);
+            const tag = i === 0 ? 'th' : 'td';
+            return '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
+          });
+          return `<table><thead>${tableRows[0]}</thead><tbody>${tableRows.slice(1).join('')}</tbody></table>`;
+        })
+        // 段落
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n/g, '<br>');
+      el.innerHTML = `<p>${html}</p>`;
+    }
+  </script>
+</body>
+</html>

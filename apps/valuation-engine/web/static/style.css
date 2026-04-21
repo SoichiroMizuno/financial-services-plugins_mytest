@@ -1,0 +1,203 @@
+/* ── 基本リセット ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+
+/* ── ヘッダー ── */
+header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+header p  { color: #aab4c8; font-size: 0.9rem; }
+
+/* ── メインコンテンツ ── */
+main {
+  max-width: 760px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── カード ── */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.card h2 {
+  font-size: 1.1rem;
+  color: #16213e;
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #e8ecf0;
+}
+
+/* ── フォーム ── */
+.form-row { margin-bottom: 1.2rem; }
+.form-row label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+.required { color: #e74c3c; }
+.form-row input[type="text"],
+.form-row input[type="number"] {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #dde2e8;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.form-row input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+.form-row input[type="file"] {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.hint { font-size: 0.78rem; color: #888; margin-top: 0.3rem; }
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+}
+button[type="submit"]:hover   { opacity: 0.9; }
+button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── ローディング ── */
+#loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: #555;
+}
+.spinner {
+  width: 44px; height: 44px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── 結果カード ── */
+.company-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+}
+.company-name { font-size: 1.3rem; font-weight: 700; }
+.company-meta { font-size: 0.85rem; color: #777; }
+
+/* 判定ボックス */
+.judgment-box {
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+.judgment-label { font-size: 2rem; font-weight: 800; letter-spacing: 0.1em; }
+.judgment-green  { background: #e8f8f0; color: #27ae60; }
+.judgment-orange { background: #fef9e7; color: #e67e22; }
+.judgment-red    { background: #fdecea; color: #e74c3c; }
+.judgment-gray   { background: #f2f2f2; color: #777; }
+
+/* 株価グリッド */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+.price-item {
+  background: #f7f9fc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+.price-item.highlight { background: #eaf4fd; }
+.price-label { font-size: 0.75rem; color: #888; margin-bottom: 0.4rem; }
+.price-value { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; }
+
+/* ── ボタン類 ── */
+.actions { text-align: center; }
+.btn-secondary {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border: 1.5px solid #3498db;
+  color: #3498db;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { background: #3498db; color: white; }
+
+/* ── エラー ── */
+.error-message {
+  background: #fdecea;
+  color: #c0392b;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ── レポートページ ── */
+.back-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: #aab4c8;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.back-link:hover { color: white; }
+
+.report-card { line-height: 1.8; }
+.report-card h1 { font-size: 1.5rem; margin: 1.5rem 0 0.8rem; color: #1a1a2e; }
+.report-card h2 { font-size: 1.2rem; margin: 1.4rem 0 0.6rem; color: #16213e; border-bottom: 1px solid #e8ecf0; padding-bottom: 0.3rem; }
+.report-card h3 { font-size: 1rem; margin: 1rem 0 0.4rem; color: #333; }
+.report-card table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+.report-card th { background: #16213e; color: white; padding: 0.5rem 0.8rem; text-align: left; }
+.report-card td { padding: 0.45rem 0.8rem; border-bottom: 1px solid #eee; }
+.report-card tr:nth-child(even) td { background: #f7f9fc; }
+.report-card pre { background: #f4f6f8; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.82rem; margin: 0.8rem 0; }
+.report-card code { background: #f0f2f5; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em; }
+.report-card pre code { background: none; padding: 0; }
+.report-card hr { border: none; border-top: 1px solid #e8ecf0; margin: 1.5rem 0; }
+.report-card blockquote { border-left: 3px solid #3498db; padding-left: 1rem; color: #555; margin: 1rem 0; }
+
+/* ── レスポンシブ ── */
+@media (max-width: 560px) {
+  .price-grid { grid-template-columns: 1fr; }
+  header h1  { font-size: 1.4rem; }
+}
